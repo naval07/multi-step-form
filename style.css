@@ -1,0 +1,138 @@
+/* 
+This is a mobile-first design
+*/
+
+* {
+  box-sizing: border-box;
+  padding: 0%;
+  margin: 0%;
+}
+
+/* body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+html {
+  font-size: 16px;
+}
+
+form {
+  transition: 0.5s;
+}
+
+/* 
+========================
+Main content layout
+========================
+*/
+
+.main-form-container {
+  display: grid;
+  grid-template-rows: 175px 1fr 85px;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "form-steps-alias"
+    "form-content-alias"
+    "form-btns-alias";
+  height: 100vh;
+}
+
+/* 
+========================
+Form steps section
+========================
+*/
+
+.form-steps-container {
+  grid-area: form-steps-alias;
+  background-image: url(assets/images/bg-sidebar-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  height: 175px;
+  width: 100%;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  column-gap: 20px;
+}
+
+.step-number {
+  border: 1px solid white;
+  border-radius: 50% 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.form-step-info {
+  display: none;
+}
+
+.form-content {
+  grid-area: form-conten-alias;
+}
+
+.form-btns {
+  grid-area: form-btns-alias;
+}
+
+.container {
+  position: relative;
+  border: 1px solid blue;
+  overflow: hidden;
+}
+
+.element-1 {
+  border: 2px solid red;
+  height: 250px;
+  width: 400px;
+}
+
+.element-2 {
+  border: 2px solid green;
+  height: 600px;
+  width: 200px;
+}
+
+/* 
+========================
+Conditional classes for Forms states
+========================
+*/
+
+.displayed-form {
+  position: static;
+  left: 0%;
+  right: 0%;
+}
+
+.completed-form {
+  position: absolute;
+  right: 100%;
+}
+
+.waiting-form {
+  position: absolute;
+  left: 100%;
+  top: 0%;
+}
+
+/*
+========================
+Front-end default style
+========================
+ */
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
