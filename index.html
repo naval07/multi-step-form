@@ -12,6 +12,11 @@
       href="./assets/images/favicon-32x32.png"
     />
 
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
     <title>Frontend Mentor | Multi-step form</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -19,7 +24,7 @@
     <div class="main-form-container">
       <div class="form-steps-container">
         <div class="form-step" id="form-step-1">
-          <div class="step-number">1</div>
+          <div class="step-number step-number-active">1</div>
           <div class="form-step-info">
             <p>STEP 1</p>
             <h3>YOUR INFO</h3>
@@ -47,7 +52,26 @@
           </div>
         </div>
       </div>
-      <div class="form-content"></div>
+      <div class="form-area">
+        <div class="form-content">
+          <form name="personal-info">
+            <h2>Personal info</h3>
+            <p>Please provide your name, email address, and phone number.</p>
+            <div class="form-input-container">
+              <label for="name">Name</label> <small class="small-error">error</small>
+            </div>           
+            <input type="text" name="Name" placeholder="e.g Stephen King">
+            <div class="form-input-container">
+              <label for="email-adress">Email Adress</label>
+            </div>
+            <input type="email" name="email-adress" placeholder="e.g. stephenking@lorem.com">
+            <div class="form-input-container">
+              <label for="phone-number">Phone Number</label>
+            </div>
+            <input type="tel" name="phone-number" placeholder="e.g. +1 234 567 890">
+          </form>
+        </div>
+      </div>
       <div class="form-btns">
         <button type="button" class="go-back-btn">Go Back</button>
         <button type="button" class="next-step-btn">Next Step</button>

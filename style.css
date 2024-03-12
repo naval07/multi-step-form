@@ -16,12 +16,27 @@ This is a mobile-first design
 
 html {
   font-size: 16px;
+  font-family: "Ubuntu", sans-serif;
 }
 
 form {
   transition: 0.5s;
 }
 
+label {
+  font-weight: 400;
+}
+
+input {
+  border: 1px solid hsl(229, 24%, 87%);
+  height: 2.5rem;
+  width: 100%;
+  border-radius: 3px;
+  padding: 1rem;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  margin-top: 5px;
+}
 /* 
 ========================
 Main content layout
@@ -39,12 +54,6 @@ Main content layout
   height: 100vh;
 }
 
-/* 
-========================
-Form steps section
-========================
-*/
-
 .form-steps-container {
   grid-area: form-steps-alias;
   background-image: url(assets/images/bg-sidebar-mobile.svg);
@@ -59,11 +68,26 @@ Form steps section
   column-gap: 20px;
 }
 
+.form-area {
+  grid-area: form-content-alias;
+  background-color: hsl(217, 100%, 97%);
+}
+
+.form-btns {
+  grid-area: form-btns-alias;
+}
+
+/* 
+========================
+Form steps section
+========================
+*/
+
 .step-number {
   border: 1px solid white;
   border-radius: 50% 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,19 +95,80 @@ Form steps section
   font-weight: bold;
 }
 
+.step-number-active {
+  background-color: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+}
+
 .form-step-info {
   display: none;
 }
 
+/* 
+========================
+Form content
+========================
+*/
+
 .form-content {
-  grid-area: form-conten-alias;
+  position: relative;
+  padding: 25px;
+  top: -70px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background-color: white;
+  display: grid;
 }
+
+.form-content h2 {
+  color: hsl(213, 96%, 18%);
+  margin-bottom: 10px;
+}
+
+.form-content p {
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+  margin-bottom: 20px;
+}
+
+.form-input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.small-error {
+  color: red;
+}
+
+/* 
+========================
+Form buttons
+========================
+*/
 
 .form-btns {
-  grid-area: form-btns-alias;
+  display: flex;
+  padding: 15px;
+  justify-content: flex-end;
 }
 
-.container {
+.go-back-btn {
+  display: none;
+}
+
+.next-step-btn {
+  color: white;
+  border-radius: 5px;
+  background-color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  width: 100px;
+  height: 80%;
+}
+
+/* .container {
   position: relative;
   border: 1px solid blue;
   overflow: hidden;
@@ -99,7 +184,7 @@ Form steps section
   border: 2px solid green;
   height: 600px;
   width: 200px;
-}
+} */
 
 /* 
 ========================
