@@ -27,7 +27,7 @@ label {
   font-weight: 400;
 }
 
-input {
+input[type="text"] {
   border: 1px solid hsl(229, 24%, 87%);
   height: 2.5rem;
   width: 100%;
@@ -37,6 +37,7 @@ input {
   font-weight: 500;
   margin-top: 5px;
 }
+
 /* 
 ========================
 Main content layout
@@ -45,7 +46,7 @@ Main content layout
 
 .main-form-container {
   display: grid;
-  grid-template-rows: 175px 1fr 85px;
+  grid-template-rows: 175px minmax(400px, 1fr) 70px;
   grid-template-columns: 1fr;
   grid-template-areas:
     "form-steps-alias"
@@ -66,6 +67,7 @@ Main content layout
   display: flex;
   justify-content: center;
   column-gap: 20px;
+  overflow: overlay;
 }
 
 .form-area {
@@ -106,17 +108,17 @@ Form steps section
 
 /* 
 ========================
-Form content
+Form 1 content
 ========================
 */
 
 .form-content {
-  position: relative;
+  position: absolute;
+  top: 100px;
+  transform: translateX(-50%);
   padding: 25px;
-  top: -70px;
   width: 90%;
   left: 50%;
-  transform: translateX(-50%);
   border-radius: 10px;
   background-color: white;
   display: grid;
@@ -130,6 +132,9 @@ Form content
 .form-content p {
   font-weight: 500;
   color: hsl(231, 11%, 63%);
+}
+
+form > p {
   margin-bottom: 20px;
 }
 
@@ -143,6 +148,174 @@ Form content
   color: red;
 }
 
+/*
+========================
+Form 2 content
+========================
+*/
+
+.plans-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.plan-item {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.plan-item:hover {
+  cursor: pointer;
+  background-color: hsl(217, 100%, 97%);
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-color: hsl(243, 100%, 62%);
+}
+
+.plan-icon {
+  justify-self: center;
+  align-self: center;
+}
+
+.plan-info {
+  padding-left: 10px;
+}
+
+.monthly-plan-item {
+  /* display: none; */
+}
+
+.yearly-plan-item {
+  display: none;
+}
+
+.plan-switch-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  width: 100%;
+  height: 2.5rem;
+  background-color: hsl(217, 100%, 97%);
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+/* Conditional class for pricing time lapse active */
+.pricing-type-active {
+  color: hsl(213, 96%, 18%) !important;
+}
+
+/* 
+========================
+Form 2: Toggle button (taken from https://www.w3schools.com/howto/howto_css_switch.asp)
+========================
+*/
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 1.5rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(213, 96%, 18%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  left: 3px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(23px);
+  -ms-transform: translateX(23px);
+  transform: translateX(23px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* 
+========================
+Form 3
+========================
+*/
+
+.add-on-item {
+  display: grid;
+  grid-template-columns: 1.2rem 1fr 45px;
+  align-items: center;
+  padding: 15px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.add-on-item:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
+}
+
+.add-on-item div {
+  padding-left: 10px;
+}
+
+.add-on-item p {
+  font-size: 0.8rem;
+}
+
+.add-on-item small {
+  color: hsl(243, 100%, 62%);
+  justify-self: end;
+}
+
+.add-on-checkbox {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+}
+
+/* 
+========================
+Form 4
+========================
+*/
+
 /* 
 ========================
 Form buttons
@@ -150,22 +323,34 @@ Form buttons
 */
 
 .form-btns {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "go-back-btn next-step-btn";
   padding: 15px;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 .go-back-btn {
-  display: none;
+  grid-area: go-back-btn;
+  justify-self: start;
+  font-weight: 600;
+  background-color: transparent;
+  border: none;
+  color: hsl(231, 11%, 63%);
+  letter-spacing: 1px;
+  /* display: none; */
 }
 
 .next-step-btn {
+  grid-area: next-step-btn;
+  justify-self: end;
   color: white;
   border-radius: 5px;
   background-color: hsl(213, 96%, 18%);
-  font-weight: 500;
+  font-weight: 600;
   width: 100px;
-  height: 80%;
+  height: 100%;
+  letter-spacing: 1px;
 }
 
 /* .container {
@@ -185,6 +370,12 @@ Form buttons
   height: 600px;
   width: 200px;
 } */
+
+/* Conditional class for selected item (plan or add-on) */
+.selected-item {
+  background-color: hsl(217, 100%, 97%);
+  border-color: hsl(243, 100%, 62%);
+}
 
 /* 
 ========================
@@ -213,7 +404,7 @@ Conditional classes for Forms states
 ========================
 Front-end default style
 ========================
- */
+*/
 .attribution {
   font-size: 11px;
   text-align: center;

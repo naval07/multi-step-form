@@ -13,9 +13,12 @@
     />
 
     <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Frontend Mentor | Multi-step form</title>
     <link rel="stylesheet" href="style.css" />
@@ -54,8 +57,9 @@
       </div>
       <div class="form-area">
         <div class="form-content">
-          <form name="personal-info">
-            <h2>Personal info</h3>
+          <!-- Personal info form -->
+          <!-- <form name="personal-info">
+            <h2>Personal info</h2>
             <p>Please provide your name, email address, and phone number.</p>
             <div class="form-input-container">
               <label for="name">Name</label> <small class="small-error">error</small>
@@ -69,17 +73,139 @@
               <label for="phone-number">Phone Number</label>
             </div>
             <input type="tel" name="phone-number" placeholder="e.g. +1 234 567 890">
+          </form> -->
+
+          <!-- Select your plan form -->
+          <!-- <form name="plan-selection">
+            <h2>Personal info</h2>
+            <p>Please provide your name, email address, and phone number.</p>
+
+            <div class="plans-container">
+              <div class="plan-item selected-plan">
+                <img class="plan-icon" id="arcade-icon" src="assets/images/icon-arcade.svg">
+                <div class="plan-info">
+                  <h3>Arcade</h3>
+                  <p class="monthly-plan-item">&dollar;9/mo</p>
+                  <p class="yearly-plan-item">&dollar;90/yr</p>
+                  <small class="yearly-plan-item">2 months free</small>              
+                </div>
+              </div>
+  
+              <div class="plan-item">
+                <img class="plan-icon" id="arcade-icon" src="assets/images/icon-advanced.svg">
+                <div class="plan-info">
+                  <h3>Advanced</h3>
+                  <p class="monthly-plan-item">&dollar;12/mo</p>
+                  <p class="yearly-plan-item">&dollar;120/yr</p>
+                  <small class="yearly-plan-item">2 months free</small>              
+                </div>
+              </div>
+  
+              <div class="plan-item">
+                <img class="plan-icon" id="arcade-icon" src="assets/images/icon-pro.svg">
+                <div class="plan-info">
+                  <h3>Pro</h3>
+                  <p class="monthly-plan-item">&dollar;15/mo</p>
+                  <p class="yearly-plan-item">&dollar;150/yr</p>
+                  <small class="yearly-plan-item">2 months free</small>              
+                </div>
+              </div>
+            </div>
+            <div class="plan-switch-container">
+              <p class="month-selection pricing-type-active">Monthly</p>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>
+              <p class="year-selection">Yearly</p>
+            </div>
+          </form> -->
+
+          <!-- Pick add-ons form -->
+          <!-- <form name="Pick-add-on-form">
+            <h2>Pick add-ons</h2>
+            <p>Add-ons help enhance your gaming experience.</p>
+
+            <label class="add-on-item selected-item">
+              <input
+                type="checkbox"
+                name="online-service"
+                class="add-on-checkbox"
+                id=""
+              />
+              <div>
+                <h4>Online service</h4>
+                <p>Access to multiplayer games</p>
+              </div>
+              <small class="monthly-plan-item">+&dollar;1/mo</small>
+              <small class="yearly-plan-item">+&dollar;10/yr</small>
+            </label>
+
+            <label class="add-on-item">
+              <input
+                type="checkbox"
+                name="online-service"
+                class="add-on-checkbox"
+                id=""
+              />
+              <div>
+                <h4>Larger storage</h4>
+                <p>Extra 1TB of cloud save</p>
+              </div>
+              <small class="monthly-plan-item">+&dollar;2/mo</small>
+              <small class="yearly-plan-item">+&dollar;20/yr</small>
+            </label>
+
+            <label class="add-on-item">
+              <input
+                type="checkbox"
+                name="customizable-profile"
+                class="add-on-checkbox"
+              />
+              <div>
+                <h4>Customizable profile</h4>
+                <p>Custom theme on your profile</p>
+              </div>
+              <small class="monthly-plan-item">+&dollar;2/mo</small>
+              <small class="yearly-plan-item">+&dollar;20/yr</small>
+            </label>
+          </form> -->
+
+          <!-- Finishing up step -->
+          <form name="finishing-up">
+            <h2>Finishing up</h2>
+            <p>Double-check everything looks OK before confirming.</p>
+            <div class="plan-summary-container">
+              <div>
+                <div>
+                  <h4>Arcade (Monthly)</h4>
+                  <button type="reset" id="change-btn">Change</button>
+                </div>
+                <small id="selected-plan-price">&dollar;9/mo</small>
+              </div>
+              <div class="selected-add-on">
+                <p>Online Service</p>
+                <small class="selected-add-on-price">+&dollar;1/mo</small>
+              </div>
+              <div class="selected-add-on">
+                <p>Larger storage</p>
+                <small class="selected-add-on-price">+&dollar;2/mo</small>
+              </div>
+              <div class="total-price-container">
+                <p>Total (per month)</p>
+                <small id="total-price-value">+&dollar;12/mo</small>
+              </div>
           </form>
         </div>
       </div>
-      <div class="form-btns">
-        <button type="button" class="go-back-btn">Go Back</button>
-        <button type="button" class="next-step-btn">Next Step</button>
-      </div>
+    </div>
+    <div class="form-btns">
+      <button type="button" class="go-back-btn">Go Back</button>
+      <button type="button" class="next-step-btn">Next Step</button>
     </div>
 
     <!-- Sidebar start -->
-    <div class="container">
+    <!-- <div class="container">
       <form class="element-1 displayed-form">
         <button type="button" id="next-btn">Next</button>
       </form>
@@ -87,7 +213,7 @@
       <form class="element-2 waiting-form">
         <button type="button" id="prev-btn">Prev</button>
       </form>
-    </div>
+    </div> -->
 
     <!-- Step 1 Your info Step 2 Select plan Step 3 Add-ons Step 4 Summary -->
 

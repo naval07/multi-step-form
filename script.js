@@ -19,3 +19,17 @@ prevBtn.onclick = function () {
   form1.classList.remove("completed-form");
   form1.classList.add("displayed-form");
 };
+
+// FORM 1
+
+// - Validation form for the input fields
+// - Error messages
+// - Form button function
+// - change form state and function for previous form
+
+// FORM 2 
+// - Function for select only one plan at a time
+//    - Make sure nothing changes if the user re selects a plan
+// - Function that changes the time lapse plan
+// - Form buttons functions
+// - change form state and else
