@@ -76,50 +76,65 @@
           </form> -->
 
           <!-- Select your plan form -->
-          <!-- <form name="plan-selection">
+          <form name="plan-selection">
             <h2>Personal info</h2>
             <p>Please provide your name, email address, and phone number.</p>
 
             <div class="plans-container">
-              <div class="plan-item selected-plan">
-                <img class="plan-icon" id="arcade-icon" src="assets/images/icon-arcade.svg">
+              <label class="plan-item">
+                <input type="radio" name="plan-item" id="arcade-plan" />
+                <img
+                  class="plan-icon"
+                  id="arcade-icon"
+                  src="assets/images/icon-arcade.svg"
+                />
                 <div class="plan-info">
                   <h3>Arcade</h3>
                   <p class="monthly-plan-item">&dollar;9/mo</p>
                   <p class="yearly-plan-item">&dollar;90/yr</p>
-                  <small class="yearly-plan-item">2 months free</small>              
+                  <small class="yearly-plan-item">2 months free</small>
                 </div>
-              </div>
-  
-              <div class="plan-item">
-                <img class="plan-icon" id="arcade-icon" src="assets/images/icon-advanced.svg">
+              </label>
+
+              <label class="plan-item">
+                <input type="radio" name="plan-item" id="arcade-plan" />
+                <img
+                  class="plan-icon"
+                  id="arcade-icon"
+                  src="assets/images/icon-advanced.svg"
+                />
                 <div class="plan-info">
                   <h3>Advanced</h3>
                   <p class="monthly-plan-item">&dollar;12/mo</p>
                   <p class="yearly-plan-item">&dollar;120/yr</p>
-                  <small class="yearly-plan-item">2 months free</small>              
+                  <small class="yearly-plan-item">2 months free</small>
                 </div>
-              </div>
-  
-              <div class="plan-item">
-                <img class="plan-icon" id="arcade-icon" src="assets/images/icon-pro.svg">
+              </label>
+
+              <label class="plan-item">
+                <input type="radio" name="plan-item" id="arcade-plan" />
+                <img
+                  class="plan-icon"
+                  id="arcade-icon"
+                  src="assets/images/icon-pro.svg"
+                />
                 <div class="plan-info">
                   <h3>Pro</h3>
                   <p class="monthly-plan-item">&dollar;15/mo</p>
                   <p class="yearly-plan-item">&dollar;150/yr</p>
-                  <small class="yearly-plan-item">2 months free</small>              
+                  <small class="yearly-plan-item">2 months free</small>
                 </div>
-              </div>
+              </label>
             </div>
             <div class="plan-switch-container">
               <p class="month-selection pricing-type-active">Monthly</p>
               <label class="switch">
-                <input type="checkbox">
+                <input type="checkbox" />
                 <span class="slider round"></span>
               </label>
               <p class="year-selection">Yearly</p>
             </div>
-          </form> -->
+          </form>
 
           <!-- Pick add-ons form -->
           <!-- <form name="Pick-add-on-form">
@@ -172,14 +187,14 @@
           </form> -->
 
           <!-- Finishing up step -->
-          <form name="finishing-up">
+          <!-- <form name="finishing-up">
             <h2>Finishing up</h2>
             <p>Double-check everything looks OK before confirming.</p>
             <div class="plan-summary-container">
-              <div>
+              <div class="selected-add-on" id="selected-plan">
                 <div>
                   <h4>Arcade (Monthly)</h4>
-                  <button type="reset" id="change-btn">Change</button>
+                  <button type="reset" id="change-btn"><p>Change</p></button>
                 </div>
                 <small id="selected-plan-price">&dollar;9/mo</small>
               </div>
@@ -191,17 +206,18 @@
                 <p>Larger storage</p>
                 <small class="selected-add-on-price">+&dollar;2/mo</small>
               </div>
-              <div class="total-price-container">
-                <p>Total (per month)</p>
-                <small id="total-price-value">+&dollar;12/mo</small>
-              </div>
-          </form>
+            </div>
+            <div class="total-price-container selected-add-on">
+              <p>Total (per month)</p>
+              <small id="total-price-value">+&dollar;12/mo</small>
+            </div>
+          </form> -->
         </div>
       </div>
-    </div>
-    <div class="form-btns">
-      <button type="button" class="go-back-btn">Go Back</button>
-      <button type="button" class="next-step-btn">Next Step</button>
+      <div class="form-btns">
+        <button type="button" class="go-back-btn">Go Back</button>
+        <button type="button" class="next-step-btn">Next Step</button>
+      </div>
     </div>
 
     <!-- Sidebar start -->
