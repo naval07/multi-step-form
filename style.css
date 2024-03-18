@@ -27,7 +27,9 @@ label {
   font-weight: 400;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
   border: 1px solid hsl(229, 24%, 87%);
   height: 2.5rem;
   width: 100%;
@@ -127,6 +129,7 @@ Form 1 content
   border-radius: 10px;
   background-color: white;
   display: grid;
+  overflow: hidden;
 }
 
 .form-content h2 {
@@ -387,7 +390,7 @@ Form buttons
   align-items: center;
 }
 
-.go-back-btn {
+#go-back-btn {
   grid-area: go-back-btn;
   justify-self: start;
   font-weight: 600;
@@ -395,10 +398,10 @@ Form buttons
   border: none;
   color: hsl(231, 11%, 63%);
   letter-spacing: 1px;
-  /* display: none; */
+  display: none;
 }
 
-.next-step-btn {
+#next-step-btn {
   grid-area: next-step-btn;
   justify-self: end;
   color: white;

@@ -58,25 +58,34 @@
       <div class="form-area">
         <div class="form-content">
           <!-- Personal info form -->
-          <!-- <form name="personal-info">
+          <form name="personal-info" class="displayed-form">
             <h2>Personal info</h2>
             <p>Please provide your name, email address, and phone number.</p>
             <div class="form-input-container">
-              <label for="name">Name</label> <small class="small-error">error</small>
-            </div>           
-            <input type="text" name="Name" placeholder="e.g Stephen King">
+              <label for="name">Name</label>
+              <small class="small-error">error</small>
+            </div>
+            <input type="text" name="Name" placeholder="e.g Stephen King" />
             <div class="form-input-container">
               <label for="email-adress">Email Adress</label>
             </div>
-            <input type="email" name="email-adress" placeholder="e.g. stephenking@lorem.com">
+            <input
+              type="email"
+              name="email-adress"
+              placeholder="e.g. stephenking@lorem.com"
+            />
             <div class="form-input-container">
               <label for="phone-number">Phone Number</label>
             </div>
-            <input type="tel" name="phone-number" placeholder="e.g. +1 234 567 890">
-          </form> -->
+            <input
+              type="tel"
+              name="phone-number"
+              placeholder="e.g. +1 234 567 890"
+            />
+          </form>
 
           <!-- Select your plan form -->
-          <form name="plan-selection">
+          <form name="plan-selection" class="waiting-form">
             <h2>Personal info</h2>
             <p>Please provide your name, email address, and phone number.</p>
 
@@ -137,7 +146,7 @@
           </form>
 
           <!-- Pick add-ons form -->
-          <!-- <form name="Pick-add-on-form">
+          <form name="Pick-add-on-form" class="waiting-form">
             <h2>Pick add-ons</h2>
             <p>Add-ons help enhance your gaming experience.</p>
 
@@ -184,10 +193,10 @@
               <small class="monthly-plan-item">+&dollar;2/mo</small>
               <small class="yearly-plan-item">+&dollar;20/yr</small>
             </label>
-          </form> -->
+          </form>
 
           <!-- Finishing up step -->
-          <!-- <form name="finishing-up">
+          <form name="finishing-up" class="waiting-form">
             <h2>Finishing up</h2>
             <p>Double-check everything looks OK before confirming.</p>
             <div class="plan-summary-container">
@@ -211,12 +220,12 @@
               <p>Total (per month)</p>
               <small id="total-price-value">+&dollar;12/mo</small>
             </div>
-          </form> -->
+          </form>
         </div>
       </div>
       <div class="form-btns">
-        <button type="button" class="go-back-btn">Go Back</button>
-        <button type="button" class="next-step-btn">Next Step</button>
+        <button type="button" id="go-back-btn">Go Back</button>
+        <button type="button" id="next-step-btn">Next Step</button>
       </div>
     </div>
 

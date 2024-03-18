@@ -20,6 +20,74 @@
 //   form1.classList.add("displayed-form");
 // };
 
+// Setting the function of the next step and go back buttons
+const nextBtn = document.getElementById("next-step-btn");
+const goBackBtn = document.getElementById("go-back-btn");
+let activeStepNumber = 0;
+
+nextBtn.onclick = function () {
+  // Check if the first form is displayed
+  if (activeStepNumber === 0) {
+    let currentForm = document.querySelector(".displayed-form");
+    let nextForm = document.querySelector(".waiting-form");
+    const stepNumbers = document.querySelectorAll(".step-number");
+    if (validateStep1()) {
+      goBackBtn.style.display = "inline-block";
+      currentForm.classList.remove("displayed-form");
+      currentForm.classList.add("completed-form");
+
+      nextForm.classList.remove("waiting-form");
+      nextForm.classList.add("displayed-form");
+
+      stepNumbers[activeStepNumber].classList.remove("step-number-active");
+      activeStepNumber += 1;
+      stepNumbers[activeStepNumber].classList.add("step-number-active");
+    }
+  }
+  // If true
+  // validate first form
+  // unhide the go back function
+  // show next form
+  // update the form step state bar
+  // If false
+  // validate current form
+  // show next form
+  // update the form step state bar
+};
+
+goBackBtn.onclick = function () {
+  let currentForm = document.querySelector(".displayed-form");
+  let nextForm = document.querySelector(".waiting-form");
+  const stepNumbers = document.querySelectorAll(".step-number");
+  // check if step number is > 1
+  if (activeStepNumber > 0) {
+    currentForm.reset();
+    currentForm.classList.remove("displayed-form");
+    currentForm.classList.add("waiting-form");
+
+    const completedForms = document.querySelectorAll(".completed-form");
+    let previousForm = completedForms[completedForms.length - 1];
+    previousForm.classList.remove("completed-form");
+    previousForm.classList.add("displayed-form");
+
+    stepNumbers[activeStepNumber].classList.remove("step-number-active");
+    activeStepNumber -= 1;
+    stepNumbers[activeStepNumber].classList.add("step-number-active");
+
+    if (activeStepNumber === 0) {
+      goBackBtn.style.display = "none";
+    }
+  }
+  // if True
+  // reset and hide current form
+  // display the last completed form
+  // update the form step state bar
+};
+
+function validateStep1() {
+  return true;
+}
+
 // FORM 1
 
 // - Validation form for the input fields
