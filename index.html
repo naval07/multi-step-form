@@ -68,6 +68,7 @@
             <input type="text" name="Name" placeholder="e.g Stephen King" />
             <div class="form-input-container">
               <label for="email-adress">Email Adress</label>
+              <small class="small-error"></small>
             </div>
             <input
               type="email"
@@ -76,6 +77,7 @@
             />
             <div class="form-input-container">
               <label for="phone-number">Phone Number</label>
+              <small class="small-error"></small>
             </div>
             <input
               type="tel"
@@ -100,8 +102,8 @@
                 <div class="plan-info">
                   <h3>Arcade</h3>
                   <p class="monthly-plan-item">&dollar;9/mo</p>
-                  <p class="yearly-plan-item">&dollar;90/yr</p>
-                  <small class="yearly-plan-item">2 months free</small>
+                  <p class="yearly-plan-item hide-plan-info">&dollar;90/yr</p>
+                  <small class="yearly-plan-item hide-plan-info">2 months free</small>
                 </div>
               </label>
 
@@ -115,8 +117,8 @@
                 <div class="plan-info">
                   <h3>Advanced</h3>
                   <p class="monthly-plan-item">&dollar;12/mo</p>
-                  <p class="yearly-plan-item">&dollar;120/yr</p>
-                  <small class="yearly-plan-item">2 months free</small>
+                  <p class="yearly-plan-item hide-plan-info">&dollar;120/yr</p>
+                  <small class="yearly-plan-item hide-plan-info">2 months free</small>
                 </div>
               </label>
 
@@ -130,15 +132,15 @@
                 <div class="plan-info">
                   <h3>Pro</h3>
                   <p class="monthly-plan-item">&dollar;15/mo</p>
-                  <p class="yearly-plan-item">&dollar;150/yr</p>
-                  <small class="yearly-plan-item">2 months free</small>
+                  <p class="yearly-plan-item hide-plan-info">&dollar;150/yr</p>
+                  <small class="yearly-plan-item hide-plan-info">2 months free</small>
                 </div>
               </label>
             </div>
             <div class="plan-switch-container">
               <p class="month-selection pricing-type-active">Monthly</p>
               <label class="switch">
-                <input type="checkbox" />
+                <input type="checkbox" id="switch-input"/>
                 <span class="slider round"></span>
               </label>
               <p class="year-selection">Yearly</p>
@@ -162,7 +164,7 @@
                 <p>Access to multiplayer games</p>
               </div>
               <small class="monthly-plan-item">+&dollar;1/mo</small>
-              <small class="yearly-plan-item">+&dollar;10/yr</small>
+              <small class="yearly-plan-item hide-plan-info">+&dollar;10/yr</small>
             </label>
 
             <label class="add-on-item">
@@ -177,7 +179,7 @@
                 <p>Extra 1TB of cloud save</p>
               </div>
               <small class="monthly-plan-item">+&dollar;2/mo</small>
-              <small class="yearly-plan-item">+&dollar;20/yr</small>
+              <small class="yearly-plan-item hide-plan-info">+&dollar;20/yr</small>
             </label>
 
             <label class="add-on-item">
@@ -191,7 +193,7 @@
                 <p>Custom theme on your profile</p>
               </div>
               <small class="monthly-plan-item">+&dollar;2/mo</small>
-              <small class="yearly-plan-item">+&dollar;20/yr</small>
+              <small class="yearly-plan-item hide-plan-info">+&dollar;20/yr</small>
             </label>
           </form>
 
@@ -290,7 +292,7 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a target="_blank" href="https://github.com/naval07">Naval07</a>.
     </div>
 
     <script src="script.js"></script>

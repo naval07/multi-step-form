@@ -19,7 +19,7 @@ html {
   font-family: "Ubuntu", sans-serif;
 }
 
-form {
+form, div {
   transition: 0.5s;
 }
 
@@ -197,13 +197,10 @@ Form 2 content
   padding-left: 10px;
 }
 
-.monthly-plan-item {
-  /* display: none; */
+.hide-plan-info {
+  display:none;
 }
 
-.yearly-plan-item {
-  display: none;
-}
 
 .plan-switch-container {
   display: flex;
@@ -411,6 +408,10 @@ Form buttons
   width: 100px;
   height: 100%;
   letter-spacing: 1px;
+}
+
+.confirm-btn {
+  background-color: hsl(243, 100%, 62%) !important;
 }
 
 /* .container {
