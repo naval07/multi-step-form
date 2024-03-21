@@ -63,17 +63,23 @@
             <p>Please provide your name, email address, and phone number.</p>
             <div class="form-input-container">
               <label for="name">Name</label>
-              <small class="small-error">error</small>
+              <small class="small-error"></small>
             </div>
-            <input type="text" name="Name" placeholder="e.g Stephen King" />
+            <input
+              type="text"
+              name="name"
+              placeholder="e.g Stephen King"
+              onkeydown="removeErrorMsg(this)"
+            />
             <div class="form-input-container">
-              <label for="email-adress">Email Adress</label>
+              <label for="email-address">Email address</label>
               <small class="small-error"></small>
             </div>
             <input
               type="email"
-              name="email-adress"
+              name="email-address"
               placeholder="e.g. stephenking@lorem.com"
+              onkeydown="removeErrorMsg(this)"
             />
             <div class="form-input-container">
               <label for="phone-number">Phone Number</label>
@@ -83,6 +89,7 @@
               type="tel"
               name="phone-number"
               placeholder="e.g. +1 234 567 890"
+              onkeydown="removeErrorMsg(this)"
             />
           </form>
 
@@ -93,7 +100,12 @@
 
             <div class="plans-container">
               <label class="plan-item">
-                <input type="radio" name="plan-item-radio" id="arcade-plan" />
+                <input
+                  type="radio"
+                  name="plan-item-radio"
+                  id="arcade-plan"
+                  value="arcade"
+                />
                 <img
                   class="plan-icon"
                   id="arcade-icon"
@@ -103,12 +115,19 @@
                   <h3>Arcade</h3>
                   <p class="monthly-plan-item">&dollar;9/mo</p>
                   <p class="yearly-plan-item hide-plan-info">&dollar;90/yr</p>
-                  <small class="yearly-plan-item hide-plan-info">2 months free</small>
+                  <small class="yearly-plan-item hide-plan-info"
+                    >2 months free</small
+                  >
                 </div>
               </label>
 
               <label class="plan-item">
-                <input type="radio" name="plan-item-radio" id="advanced-plan" />
+                <input
+                  type="radio"
+                  name="plan-item-radio"
+                  id="advanced-plan"
+                  value="advanced"
+                />
                 <img
                   class="plan-icon"
                   id="advanced-icon"
@@ -118,12 +137,19 @@
                   <h3>Advanced</h3>
                   <p class="monthly-plan-item">&dollar;12/mo</p>
                   <p class="yearly-plan-item hide-plan-info">&dollar;120/yr</p>
-                  <small class="yearly-plan-item hide-plan-info">2 months free</small>
+                  <small class="yearly-plan-item hide-plan-info"
+                    >2 months free</small
+                  >
                 </div>
               </label>
 
               <label class="plan-item">
-                <input type="radio" name="plan-item-radio" id="pro-plan" />
+                <input
+                  type="radio"
+                  name="plan-item-radio"
+                  id="pro-plan"
+                  value="pro"
+                />
                 <img
                   class="plan-icon"
                   id="pro-icon"
@@ -133,14 +159,16 @@
                   <h3>Pro</h3>
                   <p class="monthly-plan-item">&dollar;15/mo</p>
                   <p class="yearly-plan-item hide-plan-info">&dollar;150/yr</p>
-                  <small class="yearly-plan-item hide-plan-info">2 months free</small>
+                  <small class="yearly-plan-item hide-plan-info"
+                    >2 months free</small
+                  >
                 </div>
               </label>
             </div>
             <div class="plan-switch-container">
               <p class="month-selection pricing-type-active">Monthly</p>
               <label class="switch">
-                <input type="checkbox" id="switch-input"/>
+                <input type="checkbox" id="switch-input" />
                 <span class="slider round"></span>
               </label>
               <p class="year-selection">Yearly</p>
@@ -152,10 +180,11 @@
             <h2>Pick add-ons</h2>
             <p>Add-ons help enhance your gaming experience.</p>
 
-            <label class="add-on-item selected-item">
+            <label class="add-on-item">
               <input
                 type="checkbox"
-                name="online-service"
+                name="add-on-input"
+                value="online-service"
                 class="add-on-checkbox"
                 id=""
               />
@@ -164,13 +193,16 @@
                 <p>Access to multiplayer games</p>
               </div>
               <small class="monthly-plan-item">+&dollar;1/mo</small>
-              <small class="yearly-plan-item hide-plan-info">+&dollar;10/yr</small>
+              <small class="yearly-plan-item hide-plan-info"
+                >+&dollar;10/yr</small
+              >
             </label>
 
             <label class="add-on-item">
               <input
                 type="checkbox"
-                name="online-service"
+                name="add-on-input"
+                value="larger-storage"
                 class="add-on-checkbox"
                 id=""
               />
@@ -179,13 +211,16 @@
                 <p>Extra 1TB of cloud save</p>
               </div>
               <small class="monthly-plan-item">+&dollar;2/mo</small>
-              <small class="yearly-plan-item hide-plan-info">+&dollar;20/yr</small>
+              <small class="yearly-plan-item hide-plan-info"
+                >+&dollar;20/yr</small
+              >
             </label>
 
             <label class="add-on-item">
               <input
                 type="checkbox"
-                name="customizable-profile"
+                name="add-on-input"
+                value="customizable-profile"
                 class="add-on-checkbox"
               />
               <div>
@@ -193,7 +228,9 @@
                 <p>Custom theme on your profile</p>
               </div>
               <small class="monthly-plan-item">+&dollar;2/mo</small>
-              <small class="yearly-plan-item hide-plan-info">+&dollar;20/yr</small>
+              <small class="yearly-plan-item hide-plan-info"
+                >+&dollar;20/yr</small
+              >
             </label>
           </form>
 
@@ -292,7 +329,8 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a target="_blank" href="https://github.com/naval07">Naval07</a>.
+      >. Coded by
+      <a target="_blank" href="https://github.com/naval07">Naval07</a>.
     </div>
 
     <script src="script.js"></script>

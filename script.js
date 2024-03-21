@@ -14,19 +14,19 @@ nextBtn.onclick = function () {
       goBackBtn.style.display = "inline-block";
       displayNextForm(currentForm, nextForm);
     }
-  // Check if second form is displayed
+    // Check if second form is displayed
   } else if (activeStepNumber === 1) {
     let validated = validateStep2();
     if (validated) {
       displayNextForm(currentForm, nextForm);
     }
-  // Check if third form is displayed
+    // Check if third form is displayed
   } else if (activeStepNumber === 2) {
     // Third form does not need to be validated
     displayNextForm(currentForm, nextForm);
     // Toggle next step button to confirm button
     toggleNextStepBtn();
-  } 
+  }
   // else if (activeStepNumber == 3) {
   //   // confirm the entire form
   // }
@@ -48,11 +48,11 @@ function displayNextForm(current, next) {
 
 // Helper function to toggle next step button and confirm button
 function toggleNextStepBtn() {
-  nextBtn.classList.toggle('confirm-btn');
-  if (nextBtn.classList.contains('confirm-btn')) {
-    nextBtn.innerText = 'Confirm';
+  nextBtn.classList.toggle("confirm-btn");
+  if (nextBtn.classList.contains("confirm-btn")) {
+    nextBtn.innerText = "Confirm";
   } else {
-    nextBtn.innerText = 'Next Step';
+    nextBtn.innerText = "Next Step";
   }
 }
 
@@ -87,6 +87,20 @@ goBackBtn.onclick = function () {
   }
 };
 
+// Helper function that creates an error message
+function createErrorMsg(inputElem, msg) {
+  const previousSibling = inputElem.previousElementSibling;
+  const errorElement = previousSibling.querySelector(".small-error");
+  errorElement.innerText = msg;
+}
+
+// Helper function that removes previous error messages. This is used at onkeydown input attribute
+function removeErrorMsg(inputElem) {
+  const previousSibling = inputElem.previousElementSibling;
+  const errorElement = previousSibling.querySelector(".small-error");
+  errorElement.innerText = "";
+}
+
 // FORM 1
 
 // - Validation form for the input fields
@@ -94,7 +108,37 @@ goBackBtn.onclick = function () {
 // - Form button function
 // - change form state and function for previous form
 function validateStep1() {
-  return true;
+  const step1Form = document.querySelector('form[name="personal-info"]');
+  const nameInput = step1Form.querySelector('input[name="name"]');
+  const emailInput = step1Form.querySelector('input[name="email-address"]');
+  const phoneNumberInput = step1Form.querySelector(
+    'input[name="phone-number"]'
+  );
+  let formState = true;
+  if (!/\w+/.test(nameInput.value)) {
+    createErrorMsg(nameInput, "This field is required.");
+    formState = false;
+  }
+  const emailRegexp = /\w+\@[a-z]+\.[a-z]+/;
+  if (emailInput.value.length === 0) {
+    createErrorMsg(emailInput, "This field is required.");
+    formState = false;
+  } else if (!emailRegexp.test(emailInput.value)) {
+    createErrorMsg(emailInput, "Incorrect format.");
+    formState = false;
+  }
+  const phoneRegexp = /\+[0-9 ]{10,15}/;
+  if (phoneNumberInput.value.length == 0) {
+    createErrorMsg(phoneNumberInput, "This field is required.");
+    formState = false;
+  } else if (!phoneRegexp.test(phoneNumberInput.value)) {
+    createErrorMsg(phoneNumberInput, "Incorrect format.");
+    formState = false;
+  }
+  // if (formState) {
+  //   step1Form.submit();
+  // }
+  return formState;
 }
 
 // FORM 2
@@ -129,27 +173,44 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+  // Select ckeckbox buttons
+  const checkboxes = document.querySelectorAll(
+    'input[type=checkbox][name="add-on-input"]'
+  );
+  // Event listener for each checkbox
+  checkboxes.forEach((elem) => {
+    elem.addEventListener("change", (event) => {
+      // Adding or removing the selected item layout
+      const labelParent = event.target.parentElement;
+      if (event.target.checked) {
+        labelParent.classList.add("selected-item");
+      } else {
+        labelParent.classList.remove("selected-item");
+      }
+    });
+  });
 });
 
 // Function that toggles between monthly and Yearly plan
-const switchElement = document.querySelector('#switch-input');
+const switchElement = document.querySelector("#switch-input");
 switchElement.onclick = function () {
   // Set layout to active plan time text
-  const switchContainer = document.querySelector('.plan-switch-container');
+  const switchContainer = document.querySelector(".plan-switch-container");
   switchContainer.childNodes.forEach((child) => {
-    if (child.tagName == 'P') {
+    if (child.tagName == "P") {
       child.classList.toggle("pricing-type-active");
     }
-  })
+  });
   // Toggling information of selected plan time
-  const monthlyPlanItems = document.querySelectorAll('.monthly-plan-item');
-  const yeralyPlanItems = document.querySelectorAll('.yearly-plan-item');
-  monthlyPlanItems.forEach((item) => item.classList.toggle('hide-plan-info')); yeralyPlanItems.forEach((item) => item.classList.toggle('hide-plan-info'));
-}
+  const monthlyPlanItems = document.querySelectorAll(".monthly-plan-item");
+  const yeralyPlanItems = document.querySelectorAll(".yearly-plan-item");
+  monthlyPlanItems.forEach((item) => item.classList.toggle("hide-plan-info"));
+  yeralyPlanItems.forEach((item) => item.classList.toggle("hide-plan-info"));
+};
 
 // FORM 4
-const changeBtn = document.querySelector('#change-btn');
+const changeBtn = document.querySelector("#change-btn");
 changeBtn.onclick = function () {
   goBackBtn.click();
   goBackBtn.click();
-}
+};
