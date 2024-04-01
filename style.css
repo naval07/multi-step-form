@@ -19,7 +19,8 @@ html {
   font-family: "Ubuntu", sans-serif;
 }
 
-form, div {
+form,
+div {
   transition: 0.5s;
 }
 
@@ -156,6 +157,10 @@ form > p {
   color: red;
 }
 
+.invalid-input {
+  border-color: red !important;
+}
+
 /*
 ========================
 Form 2 content
@@ -198,9 +203,8 @@ Form 2 content
 }
 
 .hide-plan-info {
-  display:none;
+  display: none;
 }
-
 
 .plan-switch-container {
   display: flex;

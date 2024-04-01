@@ -13,6 +13,11 @@ nextBtn.onclick = function () {
     if (validated) {
       goBackBtn.style.display = "inline-block";
       displayNextForm(currentForm, nextForm);
+      // uncheck every radio button of form 2
+      const radioButtons = document.querySelectorAll(
+        'input[type=radio][name="plan-item-radio"]'
+      );
+      radioButtons.forEach((elem) => (elem.checked = false));
     }
     // Check if second form is displayed
   } else if (activeStepNumber === 1) {
@@ -22,13 +27,15 @@ nextBtn.onclick = function () {
     }
     // Check if third form is displayed
   } else if (activeStepNumber === 2) {
+    // Recolect and display the selected info
+    displaySummary(nextForm);
     // Third form does not need to be validated
     displayNextForm(currentForm, nextForm);
     // Toggle next step button to confirm button
     toggleNextStepBtn();
   }
   // else if (activeStepNumber == 3) {
-  //   // confirm the entire form
+  //   // Display the thank you screen
   // }
 };
 
@@ -92,6 +99,7 @@ function createErrorMsg(inputElem, msg) {
   const previousSibling = inputElem.previousElementSibling;
   const errorElement = previousSibling.querySelector(".small-error");
   errorElement.innerText = msg;
+  inputElem.classList.add("invalid-input");
 }
 
 // Helper function that removes previous error messages. This is used at onkeydown input attribute
@@ -99,6 +107,7 @@ function removeErrorMsg(inputElem) {
   const previousSibling = inputElem.previousElementSibling;
   const errorElement = previousSibling.querySelector(".small-error");
   errorElement.innerText = "";
+  inputElem.classList.remove("invalid-input");
 }
 
 // FORM 1
@@ -149,7 +158,18 @@ function validateStep1() {
 // - change form state and else
 
 function validateStep2() {
-  return true;
+  // select radio buttons
+  const radioButtons = document.querySelectorAll(
+    'input[type=radio][name="plan-item-radio"]'
+  );
+  // Check if at least one radio button is selected
+  for (let i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      return true;
+    }
+  }
+  // Return false if there is no radio button selected
+  return false;
 }
 
 // Function that changes the layout of the selected label
@@ -214,3 +234,14 @@ changeBtn.onclick = function () {
   goBackBtn.click();
   goBackBtn.click();
 };
+
+// Function that recolects and display the entire info
+function displaySummary(form) {
+  // Get the selected plan
+  // Get the billing pricing (monthly or yearly)
+  // Insert the value into the form
+  // Get the add-ons
+  // Insert them into the summary
+  // Get the value of the plan and the add-ons
+  // Sum and display the total value.
+}
