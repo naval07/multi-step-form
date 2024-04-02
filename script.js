@@ -237,11 +237,61 @@ changeBtn.onclick = function () {
 
 // Function that recolects and display the entire info
 function displaySummary(form) {
-  // Get the selected plan
-  // Get the billing pricing (monthly or yearly)
+  // Get the selected plan information
+  const radioButtons = document.querySelectorAll(
+    'input[type=radio][name="plan-item-radio"]'
+  );
+  for (let i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      const selectedPlanLabel = radioButtons[i].parentElement;
+      const planInfo = selectedPlanLabel.querySelector(".plan-info");
+      var planName = planInfo.querySelector("h3").innerText;
+      // Get the billing pricing (monthly or yearly) that is displayed
+      var planPrice = planInfo.querySelector(
+        "p:not(.hide-plan-info)"
+      ).innerText;
+    }
+  }
   // Insert the value into the form
+  const planSummaryName = document.querySelector("#selected-plan-name");
+  planSummaryName.innerText = planName;
+  const planSummaryPricing = document.querySelector("#selected-plan-price");
+  planSummaryPricing.innerText = planPrice;
+  // Remove previous add-ons
+  const planSummaryContainer = document.querySelector(
+    ".plan-summary-container"
+  );
+  planSummaryContainer
+    .querySelectorAll(".add-on-summary-element")
+    .forEach((elem) => elem.remove());
   // Get the add-ons
-  // Insert them into the summary
+  const addOnButtons = document.querySelectorAll(".add-on-checkbox");
+  for (let i = 0; i < addOnButtons.length; i++) {
+    let btn = addOnButtons[i];
+    if (btn.checked) {
+      // Get add-on info
+      const selectedAddOnLabel = btn.parentElement;
+      const addOnName = selectedAddOnLabel.querySelector("div > h4").innerText;
+      const addOnPrice = selectedAddOnLabel.querySelector(
+        "small:not(.hide-plan-info)"
+      ).innerText;
+      // Create and set add on information
+      const selectedAddOn = document.createElement("div");
+      const selectedAddOnName = document.createElement("p");
+      const selectedAddOnPricing = document.createElement("small");
+      selectedAddOn.setAttribute(
+        "class",
+        "selected-add-on add-on-summary-element"
+      );
+      selectedAddOnPricing.setAttribute("class", "selected-add-on-price");
+      selectedAddOnName.innerText = addOnName;
+      selectedAddOnPricing.innerText = addOnPrice;
+      selectedAddOn.appendChild(selectedAddOnName);
+      selectedAddOn.appendChild(selectedAddOnPricing);
+      // Insert the add-on info into the summary
+      planSummaryContainer.appendChild(selectedAddOn);
+    }
+  }
   // Get the value of the plan and the add-ons
   // Sum and display the total value.
 }
