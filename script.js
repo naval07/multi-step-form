@@ -71,6 +71,8 @@ goBackBtn.onclick = function () {
   if (activeStepNumber > 0) {
     // Remove current filled form information
     currentForm.reset();
+    const selectedItems = currentForm.querySelectorAll(".selected-item");
+    selectedItems.forEach((item) => item.classList.remove("selected-item"));
     // Hide current form
     currentForm.classList.remove("displayed-form");
     currentForm.classList.add("waiting-form");
@@ -237,6 +239,9 @@ changeBtn.onclick = function () {
 
 // Function that recolects and display the entire info
 function displaySummary(form) {
+  // Initialization of total price variable
+  const getPriceRegExp = /[0-9]+/;
+  let totalPrice = 0;
   // Get the selected plan information
   const radioButtons = document.querySelectorAll(
     'input[type=radio][name="plan-item-radio"]'
@@ -257,6 +262,8 @@ function displaySummary(form) {
   planSummaryName.innerText = planName;
   const planSummaryPricing = document.querySelector("#selected-plan-price");
   planSummaryPricing.innerText = planPrice;
+  // Adding plan price to total price
+  totalPrice += Number(getPriceRegExp.exec(planPrice)[0]);
   // Remove previous add-ons
   const planSummaryContainer = document.querySelector(
     ".plan-summary-container"
@@ -290,8 +297,11 @@ function displaySummary(form) {
       selectedAddOn.appendChild(selectedAddOnPricing);
       // Insert the add-on info into the summary
       planSummaryContainer.appendChild(selectedAddOn);
+      // Adding add-on price to total price
+      totalPrice += Number(getPriceRegExp.exec(addOnPrice)[0]);
     }
   }
-  // Get the value of the plan and the add-ons
-  // Sum and display the total value.
+  // Display the total value
+  const totalPriceElement = document.querySelector("#total-price-value");
+  totalPriceElement.innerText = planPrice.replace(getPriceRegExp, totalPrice);
 }
